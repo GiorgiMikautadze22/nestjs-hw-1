@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ExpenseManager } from '../../interfaces';
+import { CreateExpenseDto } from './dtos/create-user.dto';
 
 const moment = require('moment');
 const path = require('path');
@@ -44,17 +45,21 @@ export class ExpensesService {
     }
   }
 
-  async createExpense(expense: ExpenseManager): Promise<ExpenseManager> {
+  async createExpense(expense: CreateExpenseDto): Promise<ExpenseManager> {
     try {
       const expenseManager = await readExpenseManager();
       const lastId = expenseManager[expenseManager.length - 1].id;
-      expense.id = lastId ? lastId + 1 : 1;
+      const id = lastId ? lastId + 1 : 1;
       expense.createdAt = moment().format('DD/MM/YYYY');
-      expenseManager.push(expense);
+      const newExpense = {
+        id,
+        ...expense,
+      };
+      expenseManager.push(newExpense);
       await fs.writeFile(filePath, JSON.stringify(expenseManager, null, 2));
       console.log(expenseManager);
 
-      return expense;
+      return newExpense;
     } catch (error) {
       console.log('Error creating expense:', error);
     }

@@ -1,11 +1,5 @@
 [
   {
-    "id": 2,
-    "name": "Rent",
-    "cost": 1000,
-    "createdAt": "2021-01-01"
-  },
-  {
     "id": 3,
     "name": "Subscriptions",
     "cost": 500,
@@ -16,5 +10,11 @@
     "name": "Subscriptions",
     "cost": 500,
     "createdAt": "13/02/2024"
+  },
+  {
+    "id": 5,
+    "name": "Genadi",
+    "cost": 20000,
+    "createdAt": "19/02/2024"
   }
 ]

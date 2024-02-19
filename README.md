@@ -1,5 +1,11 @@
 This is a homework on NestJS and CRUD operations.
 
+expense-manager აპლიკაციაში დავამატოთ middleware რომელიც ყველა რექუესთზე დალოგავ user-agentს.
+შექმნის და განახლების როუტერბს დავამატოთ ვალიდაცია validation-pipeის გამოყენებით.
+დავამატოთ გლობალური გარდი რომელიც რაღაც ლოგიკით ან გაატარებს რექუესთს ან დაბლოკავს. (ლოგიკა თქვენით მოიფიქრეთ)
+update, delete, create როუტებს დავამატოთ გარდი რომელიც req.headersში შეამოწმებს თუ არსებოს ფროფერთი is-admin და აქვს მნიშვნელობა true, წინააღმდეგ შემთხვევაში არ გაატაროს რექუესთი.
+get როუტს დავუმატოთ გარდი რომელიც შეამოწმებს req.headersში თუ არსებოს ფროფერთი api-key და აქვს წინაწარ განსაზღვრული მნიშვნელობა, წინააღმდეგ შემთხვევაში არ გაატაროს რექუესთი.
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
